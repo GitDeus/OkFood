@@ -1,0 +1,48 @@
+﻿@model IEnumerable<OkFood.Data.Model.Entities.Category>
+
+@{
+    ViewBag.Title = "Review";
+}
+
+<h4>Категории</h4>
+
+@*<span>
+    
+    <a href='@Url.Action("TotalMoneyEdit", "Categories")' class="secondary-content">
+       @Html.Name("Сумма средств:")@Html.Action("TotalMoney", "Categories")
+    </a>
+</span>*@
+<p>
+    <a class="right-align" href="@Url.Action("Create", "Categories")">Добавить категорию</a>
+</p>
+@foreach (var item in Model)
+{
+    <ul class="collection">
+
+        <li class="collection-item dismissable">
+            <div>
+
+                <span class="col-md-9">
+
+                    <a href='@Url.Action("Details","Categories", new { id = item.Id.ToString() })'>
+                        @Html.DisplayFor(modelItem => item.Title)
+                </a>
+            </span>
+            <span class="">@Html.DisplayFor(modelItem => item.NumberofMoney)</span>
+
+            <a href='@Url.Action("Details","Categories", new { id = item.Id.ToString() })' class="secondary-content">
+                <i class="material-icons">info_outline</i>
+            </a>
+
+            <a href='@Url.Action("Delete","Categories", new { id = item.Id })' class="secondary-content">
+                <i class="material-icons">delete</i>
+            </a>
+            <a href='@Url.Action("Edit","Categories", new { id = item.Id })' class="secondary-content">
+                <i class="material-icons">settings</i>
+            </a>
+
+        </div>
+    </li>
+
+</ul>
+}

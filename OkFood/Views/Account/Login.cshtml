@@ -1,0 +1,52 @@
+﻿@model OkFood.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "col s8", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Use a local account to log in.</h4>
+                @Html.ValidationSummary(true)
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">email</i>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "validate", @id = "icon_prefix", @type = "email" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">lock</i>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.TextBoxFor(m => m.Password, new { @class = "validate", @id = "password", @type = "password" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="switch">
+                    <label for"RememberMe" >
+                        Off
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+                <div class="input-field col s9">
+
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                </div>
+                <p>
+                    @Html.ActionLink("Register", "Register") if you don't have a local account.
+                </p>
+            }
+        </section>
+    @*<div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>*@
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

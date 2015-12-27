@@ -1,0 +1,86 @@
+﻿@model OkFood.Data.Model.Entities.Category
+
+@{
+    ViewBag.Title = "Details";
+    string name = Model.Title;
+}
+
+<h2>Подробности</h2>
+
+<div>
+    <h4>Название категории: @name</h4>
+    Выделено средств:@Model.NumberofMoney
+    
+    <div >
+        @Html.ActionLink("Создать подкат", "Create", "Subcategories", new { Id = ViewBag.IdCategory }, htmlAttributes: new { @class = "waves-effect waves-light btn" })
+        @Html.ActionLink("Back to List", "Index", "Categories", htmlAttributes: new { @class = "waves-effect waves-light btn"})
+        <div id="chart_div"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th data-field="id">@Html.Label("Название")</th>
+                    <th data-field="price">@Html.Label("Сумма")</th>
+                    <th data-field="date">@Html.Label("Дата")</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Subcategories)
+            {
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayFor(modelt => item.Title)</td>
+                        <td>@Html.DisplayFor(modelt => item.Value)</td>
+                        <td>@Html.DisplayFor(modelt => item.Date)</td>
+                    </tr>
+                </tbody>
+            }
+            
+            </table>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+
+            // Load the Visualization API and the piechart package.
+            google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.setOnLoadCallback(drawChart);
+
+            // Callback that creates and populates a data table,
+            // instantiates the pie chart, passes in the data and
+            // draws it.
+            function drawChart() {
+
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Topping');
+                data.addColumn('number', 'PRIVET');
+                $.getJSON('@Url.Action("Piechart",  new { Id = Model.Id } )', null,
+                                                                        function (result) {
+                                                                            if (result.length) {
+                                                                                $.each(result, function (index, c) {
+                                                                                    data.addRow([c.Title, c.Value]);
+                                                                                });
+                                                                                // Set chart options
+                                                                                var options = {
+                                                                                    width: "10%",
+                                                                                    height: 500,
+                                                                                    bar: { groupWidth: "5%" },
+                                                                                    legend: { position: "top" },
+                                                                                };
+
+                                                                                // Instantiate and draw our chart, passing in some options.
+                                                                                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                                                                                chart.draw(data, options);
+                                                                            }
+                                                                        }
+
+
+
+        )
+            }
+        </script>
+    </div>
+</div>
+
+
+
+        

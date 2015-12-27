@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="left hide-on-med-and-down">
+                    @*<li>@if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="left" href='@Url.Action("TotalMoneyEdit", "Categories")'>
+                            @Html.Name("")@Html.Action("TotalMoney", "Categories")
+
+                        </a>
+                    }</li>*@
+                    <li>@Html.ActionLink("Категории", "Index", "Categories")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l8 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Contact</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="Twitter">Twitter</a></li>
+                        <li><a class="grey-text text-lighten-3" href="Facebook">Facebook</a></li>
+                        <li><a class="grey-text text-lighten-3" href="Vkontakte">Vkontakte</a></li>
+                        <li><a class="grey-text text-lighten-3" href="Github">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © @DateTime.Now.Year Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/materialize")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<link href="~/Content/Site.css" rel="stylesheet" />
