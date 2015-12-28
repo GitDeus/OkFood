@@ -1,4 +1,5 @@
-﻿using OkFood.Data.Model.Entities;
+﻿
+using OkFood.Domain.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

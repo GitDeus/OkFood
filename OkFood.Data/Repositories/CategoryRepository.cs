@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using System.Data;
 using Microsoft.AspNet.Identity;
 using System.Threading;
-using OkFood.Data.Model.Interfaces;
-using OkFood.Data.Model.Entities;
+using OkFood.Domain.Model.Entities;
+using OkFood.Domain.Interfaces;
+using OkFood.Data.Context;
 
 namespace OkFood.Data.Repositories
 {

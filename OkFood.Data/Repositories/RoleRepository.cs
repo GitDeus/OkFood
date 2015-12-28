@@ -1,5 +1,6 @@
-﻿using OkFood.Data.Model.Entities;
-using OkFood.Data.Model.Interfaces;
+﻿using OkFood.Data.Context;
+using OkFood.Domain.Interfaces;
+using OkFood.Domain.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

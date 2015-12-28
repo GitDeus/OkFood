@@ -13,18 +13,7 @@ namespace OkFood.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
-    public class BankCardManagerViewModel
-    {
-        [Required]
-        [Display(Name = "Номер банковской карты")]
-        [DataType(DataType.CreditCard)]
-        public decimal BankCardNumber { get; set; }
 
-        [Required]
-        [Display(Name = "Валюта")]
-        [DataType(DataType.Text)]
-        public string Currency { get; set; }
-    }
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }

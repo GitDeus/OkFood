@@ -1,5 +1,6 @@
-﻿using OkFood.Data.Model.Entities;
+﻿
 using OkFood.Data.Repositories;
+using OkFood.Domain.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

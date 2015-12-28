@@ -343,3 +343,5 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\ru\Microsoft.Owin.Security.Microsof
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.csprojResolveAssemblyReference.cache
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.pdb

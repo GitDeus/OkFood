@@ -6,8 +6,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using OkFood.Data.Repositories;
 using OkFood.Data.Identity;
-using OkFood.Data.Model.Entities;
-using OkFood.Data.Model.Interfaces;
 using System.Net;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,7 +14,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
-
+using OkFood.Domain.Model.Entities;
 
 namespace OkFood.Controllers
 {
@@ -43,16 +41,16 @@ namespace OkFood.Controllers
         private readonly UnitOfWork _Manager;
 
         public CategoriesController(UnitOfWork manager) { _Manager = manager; }
-        private IEnumerable<Category> GetData(string selectedCategory)
-        {
-            IEnumerable<Category> data = _Manager.CategoryRepository.GetAll();
-            if (selectedCategory != "All")
-            {
-                Category selected = (Category)Enum.Parse(typeof(Category), selectedCategory);
-                data = _Manager.CategoryRepository.GetAll().Where(p => p == selected);
-            }
-            return data;
-        }
+        //private IEnumerable<Category> GetData(string selectedCategory)
+        //{
+        //    IEnumerable<Category> data = _Manager.CategoryRepository.GetAll();
+        //    if (selectedCategory != "All")
+        //    {
+        //        Category selected = (Category)Enum.Parse(typeof(Category), selectedCategory);
+        //        data = _Manager.CategoryRepository.GetAll().Where(p => p == selected);
+        //    }
+        //    return data;
+        //}
 
         [HttpGet]
         public JsonResult Piechart(Guid Id) {

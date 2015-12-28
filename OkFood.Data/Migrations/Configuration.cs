@@ -5,7 +5,7 @@ namespace OkFood.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OkFood.Data.Model.Entities.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OkFood.Data.Context.DataContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace OkFood.Data.Migrations
 
         }
 
-        protected override void Seed(OkFood.Data.Model.Entities.DataContext context)
+        protected override void Seed(OkFood.Data.Context.DataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

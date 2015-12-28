@@ -1,11 +1,12 @@
-﻿using OkFood.Data.Model.Interfaces;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Entities = OkFood.Data.Model.Entities;
+using Entities = OkFood.Domain.Model.Entities;
+using OkFood.Domain.Interfaces;
+
 namespace OkFood.Data.Identity
 {
     public class UserStore : IUserLoginStore<IdentityUser, Guid>, IUserClaimStore<IdentityUser, Guid>, IUserRoleStore<IdentityUser, Guid>, IUserPasswordStore<IdentityUser, Guid>, IUserSecurityStampStore<IdentityUser, Guid>, IUserStore<IdentityUser, Guid>, IDisposable

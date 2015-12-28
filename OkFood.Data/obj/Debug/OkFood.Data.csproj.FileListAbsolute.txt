@@ -16,3 +16,5 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\bin\Debug\ru\Microsoft.AspNet.Iden
 C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\obj\Debug\OkFood.Data.csprojResolveAssemblyReference.cache
 C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\obj\Debug\OkFood.Data.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\obj\Debug\OkFood.Data.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\bin\Debug\OkFood.Domain.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.Data\bin\Debug\OkFood.Domain.pdb

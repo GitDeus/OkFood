@@ -66,29 +66,12 @@
     <Compile Include="Configuration\ExternalLoginConfiguration.cs" />
     <Compile Include="Configuration\RoleConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
+    <Compile Include="Context\DbContext.cs" />
     <Compile Include="Identity\IdentityRole.cs" />
     <Compile Include="Identity\IdentityUser.cs" />
     <Compile Include="Identity\RoleStore.cs" />
     <Compile Include="Identity\UserStore.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Entities\BankCard.cs" />
-    <Compile Include="Model\Entities\Category.cs" />
-    <Compile Include="Model\Entities\Claim.cs" />
-    <Compile Include="Model\Entities\DbContext.cs" />
-    <Compile Include="Model\Entities\DeliveryAddress.cs" />
-    <Compile Include="Model\Entities\ExternalLogin.cs" />
-    <Compile Include="Model\Entities\Order.cs" />
-    <Compile Include="Model\Entities\Role.cs" />
-    <Compile Include="Model\Entities\User.cs" />
-    <Compile Include="Model\Interfaces\IBankCardRepository.cs" />
-    <Compile Include="Model\Interfaces\ICategoryRepository.cs" />
-    <Compile Include="Model\Interfaces\IExternalLoginRepository.cs" />
-    <Compile Include="Model\Interfaces\IOrderRepository.cs" />
-    <Compile Include="Model\IRepository.cs" />
-    <Compile Include="Model\Interfaces\IRoleRepository.cs" />
-    <Compile Include="Model\Interfaces\ISubcategoryRepository.cs" />
-    <Compile Include="Model\Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Model\Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BankCardRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -103,7 +86,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OkFood.Domain\OkFood.Domain.csproj">
+      <Project>{9b507776-1144-465b-88de-cabe790e00fc}</Project>
+      <Name>OkFood.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,4 @@
-﻿using OkFood.Data.Model.Entities;
-using OkFood.Data.Model.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using OkFood.Domain.Model.Entities;
+using OkFood.Domain.Interfaces;
+using OkFood.Data.Context;
 
 namespace OkFood.Data.Repositories
 {

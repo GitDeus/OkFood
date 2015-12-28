@@ -1,11 +1,11 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc5;
-using OkFood.Data.Model.Interfaces;
 using Microsoft.AspNet.Identity;
 using OkFood.Data.Identity;
 using System;
 using OkFood.Data.Repositories;
+using OkFood.Domain.Interfaces;
 
 namespace OkFood
 {

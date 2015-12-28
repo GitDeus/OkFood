@@ -1,4 +1,4 @@
-﻿using OkFood.Data.Model.Entities;
+﻿
 using OkFood.Data.Model.Interfaces;
 using Microsoft.AspNet.Identity;
 using System;
@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OkFood.Domain.Interfaces;
+using OkFood.Domain.Model.Entities;
 
 namespace OkFood.Data.Identity
 {

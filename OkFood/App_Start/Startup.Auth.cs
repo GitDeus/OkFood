@@ -1,14 +1,9 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using OkFood.Models;
-using OkFood.Data.Model.Entities;
-using OkFood.Data.Identity;
-
 namespace OkFood
 {
     public partial class Startup

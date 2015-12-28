@@ -208,6 +208,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AllViewModel\BankCardManagerViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -263,7 +264,6 @@
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Subcategories\Create.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\TotalMoneyEdit.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\BankCards\Create.cshtml" />
     <Content Include="Views\BankCards\Index.cshtml" />
@@ -309,6 +309,10 @@
     <ProjectReference Include="..\OkFood.Data\OkFood.Data.csproj">
       <Project>{fab54fe5-ca17-4934-a954-d0cbd9ab19b2}</Project>
       <Name>OkFood.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OkFood.Domain\OkFood.Domain.csproj">
+      <Project>{9b507776-1144-465b-88de-cabe790e00fc}</Project>
+      <Name>OkFood.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using OkFood.Data.Model.Interfaces;
-using OkFood.Data.Model.Entities;
-
+using OkFood.Domain.Model.Entities;
+using OkFood.Domain.Interfaces;
+using OkFood.Data.Context;
 
 namespace OkFood.Data.Repositories
 {
