@@ -37,7 +37,6 @@ namespace OkFood.Controllers
         // GET: BankCards
         public ActionResult Index()
         {
-
             var result = _Manager.BankCardRepository.GetAllByUserId(UserId);
             return View(result);
         }
@@ -50,7 +49,7 @@ namespace OkFood.Controllers
         public int AddCard(BankCard card)
         {
             if (card == null)
-                throw new ArgumentNullException("category");
+                throw new ArgumentNullException("card");
 
             var user = _Manager.UserRepository.FindById(UserId);
             if (user == null)
@@ -60,10 +59,10 @@ namespace OkFood.Controllers
 
             var c = new BankCard
             {
-                BankCardId = card.BankCardId,
+                BankCardId =card.BankCardId,
                 BankCardNumber = card.BankCardNumber,
                 Currency = card.Currency,
-                UserId = UserId,
+                UserId = user.UserId,
                 User = user
             };
 
@@ -74,7 +73,7 @@ namespace OkFood.Controllers
             return _Manager.SaveChanges();
         }
         // GET: BankCards/Create
-        public ActionResult Create([Bind(Include = "BankCardNumber,Currency")] BankCard card)
+        public ActionResult Create([Bind(Include = "BankCardNumber,Currency, UserId")] BankCard card)
         {
             if (ModelState.IsValid)
             {
@@ -94,18 +93,10 @@ namespace OkFood.Controllers
 
         // POST: BankCards/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create()
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var x = _Manager.UserRepository.FindById(UserId);
+            return View(x.UserId);
         }
 
         // GET: BankCards/Edit/5

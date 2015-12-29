@@ -14,7 +14,7 @@
     <div >
         @Html.ActionLink("Создать подкат", "Create", "Subcategories", new { Id = ViewBag.IdCategory }, htmlAttributes: new { @class = "waves-effect waves-light btn" })
         @Html.ActionLink("Back to List", "Index", "Categories", htmlAttributes: new { @class = "waves-effect waves-light btn"})
-        <div id="chart_div"></div>
+
         <table>
             <thead>
                 <tr>
@@ -78,6 +78,7 @@
         )
             }
         </script>
+        <div id="chart_div"></div>
     </div>
 </div>
 

@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDeliveryAddressRepository.cs" />
     <Compile Include="Model\Entities\BankCard.cs" />
     <Compile Include="Model\Entities\Category.cs" />
     <Compile Include="Model\Entities\Claim.cs" />

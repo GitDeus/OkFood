@@ -63,7 +63,7 @@ namespace OkFood.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            var result = _Manager.CategoryRepository.UserAllCategory(UserId);
+            var result = UserIsAuthenticated ? _Manager.CategoryRepository.UserAllCategory(UserId) : null;
             return View(result);
         
         }

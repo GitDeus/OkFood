@@ -20,14 +20,24 @@ namespace OkFood.Data.Repositories
             return Set.FirstOrDefault(s => s.User.BankCards.Select(x => x.BankCardId).Contains(CardId));
         }
 
-        public BankCard GetAllByUserId(Guid UserId)
+        public decimal GetBalance(Guid CardId)
         {
-            return Set.FirstOrDefault(s => s.User.BankCards.Select(x => x.UserId).Contains(UserId));
+            return Set.Find(CardId).BankCardBalance;
+        }
+
+        public IList<BankCard> GetAllByUserId(Guid UserId)
+        {
+            return Set.Where(s => s.User.UserId == UserId).Select(s=>s).ToList();
         }
 
         public BankCard GetCurrency(Guid CardId)
         {
             return Set.FirstOrDefault(s => s.BankCardId == CardId);
+        }
+
+        public bool Activity(Guid CardId)
+        {
+            return Set.Find(CardId).Activity;
         }
     }
 }

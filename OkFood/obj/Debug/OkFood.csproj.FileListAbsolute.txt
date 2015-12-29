@@ -281,6 +281,7 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Microsoft.Practices.Unity.Registrat
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Newtonsoft.Json.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Data.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Owin.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\System.Web.Helpers.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\System.Web.Mvc.dll
@@ -292,6 +293,7 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\System.Web.WebPages.Razor.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Unity.Mvc5.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\WebGrease.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Data.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.pdb
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Antlr3.Runtime.pdb
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Microsoft.Practices.ServiceLocation.pdb
@@ -343,5 +345,3 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\ru\Microsoft.Owin.Security.Microsof
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.csprojResolveAssemblyReference.cache
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.pdb
-C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.dll
-C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.Domain.pdb

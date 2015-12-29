@@ -10,7 +10,9 @@ namespace OkFood.Domain.Interfaces
     public interface IBankCardRepository: IRepository<BankCard>
     {
         BankCard FindById(Guid CardId);
-        BankCard GetAllByUserId(Guid UserId);
+        IList<BankCard> GetAllByUserId(Guid UserId);
         BankCard GetCurrency(Guid CardId);
+        decimal GetBalance(Guid CardId);
+        bool Activity(Guid CardId);
     }
 }

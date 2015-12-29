@@ -25,12 +25,31 @@ namespace OkFood.Data.Configuration
                 .HasColumnType("decimal")
                 .HasPrecision(19, 2)
                 .IsRequired();
+            Property(x => x.BankCardBalance)
+                .HasColumnName("BankCardBalance")
+                .HasColumnType("decimal")
+                .HasPrecision(19, 2)
+                .IsRequired();
 
             Property(x => x.Currency)
                 .HasColumnName("Currency")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(32)
                 .IsOptional();
+
+            Property(x => x.DateAdd)
+               .HasColumnName("DateAdd")
+               .HasColumnType("datetime2")
+               .IsOptional();
+            Property(x => x.DateUpdate)
+               .HasColumnName("DateUpdate")
+               .HasColumnType("datetime2")
+               .IsOptional();
+
+            Property(x => x.Activity)
+               .HasColumnName("Activity")
+               .HasColumnType("bit")
+               .IsOptional();
 
             //HasMany(x => x.Roles)
             //    .WithMany(x => x.Users)

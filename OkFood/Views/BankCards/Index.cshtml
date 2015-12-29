@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OkFood.Domain.Model.Entities.BankCard >
+﻿@model IEnumerable<OkFood.Domain.Model.Entities.BankCard>
 
 @{
     ViewBag.Title = "Index";
@@ -9,31 +9,29 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BankCardNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Currency)
-        </th>
-        <th></th>
-    </tr>
+<table class="bordered highlight">
+    <thead>
+        <tr>
+            <th data-field="price">@Html.DisplayNameFor(model => model.BankCardNumber)</th>
+            <th data-field="price">@Html.DisplayNameFor(model => model.Currency)</th>
+            <th data-field="price">@Html.DisplayNameFor(model => model.Activity)</th>
+            <th data-field="price">@Html.DisplayNameFor(model => model.DateAdd)</th>
+            <th data-field="price">@Html.DisplayNameFor(model => model.DateUpdate)</th>
+            <th data-field="price">@Html.DisplayNameFor(model => model.BankCardBalance)</th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BankCardNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Currency)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr class="row">
+                <td>@item.BankCardNumber</td>
+                <td>@item.Currency</td>
+                <td>@item.Activity</td>
+                <td>@item.DateAdd</td>
+                <td>@item.DateUpdate</td>
+                <td>@item.BankCardBalance</td>
+            </tr>
+        </tbody>
+    }
 </table>

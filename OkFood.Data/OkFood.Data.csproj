@@ -75,6 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BankCardRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\DeliveryAddressRepository.cs" />
     <Compile Include="Repositories\ExternalLoginRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />

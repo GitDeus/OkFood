@@ -16,8 +16,11 @@ namespace OkFood.Domain.Model.Entities
         public Guid BankCardId { get; set; }
 
         public decimal BankCardNumber { get; set; }
-
+        public decimal BankCardBalance { get; set; }
         public string Currency { get; set; }
+        public DateTime DateAdd { get; set; }
+        public DateTime DateUpdate { get; set; }
+        public bool Activity { get; set; }
 
         public Guid UserId { get; set; }
         

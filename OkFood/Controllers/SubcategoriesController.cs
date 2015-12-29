@@ -60,7 +60,6 @@ namespace OkFood.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Value,CategoryId")] Subcategory subcategory)
         {
-
             if (ModelState.IsValid)
             {
                 if (_Manager.CategoryRepository.FindById(subcategory.CategoryId).NumberofMoney < subcategory.Value)
