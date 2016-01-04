@@ -1,0 +1,68 @@
+﻿@model OkFood.Domain.Model.Entities.DeliveryAddress
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<h4>DeliveryAddress</h4>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.City)
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.District)
+            @Html.EditorFor(model => model.District)
+            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.Street)
+            @Html.EditorFor(model => model.Street)
+            @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.House)
+            @Html.EditorFor(model => model.House)
+            @Html.ValidationMessageFor(model => model.House, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.Housing)
+            @Html.EditorFor(model => model.Housing)
+            @Html.ValidationMessageFor(model => model.Housing, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.Number)
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field col s12">
+            @Html.LabelFor(model => model.Comment)
+            @Html.EditorFor(model => model.Comment)
+            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field col s12">
+            <input type="submit" value="Create" class="btn waves-effect waves-light" />
+            <a href="@Url.Action("Index")" value="Back to List" class="btn red waves-effect waves-light">Back to List</a>
+        </div>
+    </div>
+}

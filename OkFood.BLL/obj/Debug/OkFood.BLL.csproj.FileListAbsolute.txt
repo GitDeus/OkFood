@@ -1,0 +1,15 @@
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.BLL.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.BLL.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.Data.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.Domain.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.Data.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\OkFood.Domain.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\obj\Debug\OkFood.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\obj\Debug\OkFood.BLL.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood.BLL\obj\Debug\OkFood.BLL.pdb
