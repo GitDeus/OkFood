@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IDeliveryAddressRepository.cs" />
+    <Compile Include="Interfaces\Order\IOrder.cs" />
     <Compile Include="Model\Entities\BankCard.cs" />
     <Compile Include="Model\Entities\Category.cs" />
     <Compile Include="Model\Entities\Claim.cs" />

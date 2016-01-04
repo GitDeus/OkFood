@@ -19,7 +19,6 @@ namespace OkFood.Data.Configuration
                 .HasColumnName("DeliveryAdressId")
                 .HasColumnType("uniqueidentifier")
                 .IsRequired();
-
             Property(x => x.Comment)
                 .HasColumnName("Title")
                 .HasColumnType("nvarchar")

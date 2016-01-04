@@ -8,7 +8,8 @@ namespace OkFood.Domain.Model.Entities
 {
     public class DeliveryAddress
     {
-        private Order _order;
+        //private Order _order;
+        private User _user;
         public Guid DeliveryAdressId { get; set; }
         public string City{ get; set; }
 
@@ -25,20 +26,33 @@ namespace OkFood.Domain.Model.Entities
 
         public string Comment { get; set; }
 
-        public Guid OrderId { get; set; }
-
-        #region Navigation Properties
-        public Order Order
+        public Guid UserId { get; set; }
+        public User User
         {
-            get { return _order; }
+            get { return _user; }
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
-                _order = value;
-                OrderId = value.OrderId;
+                    throw new ArgumentNullException("valueuser");
+                _user = value;
             }
         }
-        #endregion
+        //public Guid OrderId { get; set; }
+
+        //#region Navigation Properties
+        //public Order Order
+        //{
+        //    get { return _order; }
+        //    set
+        //    {
+        //        if (value == null)
+        //            OrderId = Guid.Empty;
+        //            /*row new ArgumentNullException("value");*/
+                  
+        //        _order = value;
+        //        OrderId = value.OrderId;
+        //    }
+        //}
+        //#endregion
     }
 }

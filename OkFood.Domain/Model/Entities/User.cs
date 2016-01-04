@@ -13,9 +13,9 @@ namespace OkFood.Domain.Model.Entities
         private ICollection<Claim> _claims;
         private ICollection<ExternalLogin> _externalLogins;
         private ICollection<Role> _roles;
-        private ICollection<Category> _categories;
         private ICollection<BankCard> _cards;
         private ICollection<Order> _orders;
+        private ICollection<DeliveryAddress> _deliveris;
 
         #endregion
 
@@ -24,7 +24,11 @@ namespace OkFood.Domain.Model.Entities
         public string PasswordHash { get; set; }
         public string SecurityStamp { get; set; }
 
-
+        public ICollection<DeliveryAddress> AllDeliveryAdress
+        {
+            get { return _deliveris ?? (_deliveris = new List<DeliveryAddress>()); }
+            set { _deliveris = value; }
+        }
         public ICollection<Order> Orders
         {
             get { return _orders?? (_orders = new List<Order>()); }
@@ -56,10 +60,6 @@ namespace OkFood.Domain.Model.Entities
             get { return _roles ?? (_roles = new List<Role>()); }
             set { _roles = value; }
         }
-        public ICollection<Category> Categories
-        {
-            get { return _categories ?? (_categories = new List<Category>()); }
-            set { _categories = value; }
-        }
+
     }
 }

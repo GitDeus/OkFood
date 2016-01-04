@@ -10,7 +10,6 @@ namespace OkFood.Domain.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
-        User FindByCategory(Category category);
         User FindByUserName(string username);
         Task<User> FindByUserNameAsync(string username);
         Task<User> FindByUserNameAsync(CancellationToken cancellationToken, string username);

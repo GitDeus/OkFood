@@ -10,8 +10,8 @@ namespace OkFood.Data.Model.Interfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
-        Order FindId(Guid Id);
         IList<Order> AllOrderByUser(Guid UserId);
+        Order FindId(Guid orderId);
         int OrderCount(Guid OrderId);
 
     }

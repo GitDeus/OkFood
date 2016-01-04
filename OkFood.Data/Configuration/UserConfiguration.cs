@@ -63,11 +63,11 @@ namespace OkFood.Data.Configuration
                 .WithRequired(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
-            HasMany(x => x.Orders)
+            HasMany(x => x.AllDeliveryAdress)
                 .WithRequired(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
-            HasMany(x => x.Categories)
+            HasMany(x => x.Orders)
                 .WithRequired(x => x.User);
                 
         }

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<OkFood.Domain.Model.Entities.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+<p>
+    <a href="@Url.Action("Create")" value="Create" class="btn waves-effect waves-light">Create</a>
+</p>
+
+
+@foreach (var item in Model)
+{
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+            @*<img class="activator" src="images/office.jpg">*@
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">@item.Title<i class="material-icons right"></i></span>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+                <a href='@Url.Action("Details", "Order", new { id = item.OrderId.ToString() })'>@Html.DisplayFor(modelItem => item.Title)</a>
+                <i class="material-icons right">close</i>
+
+                <a href='@Url.Action("Delete","Order", new { id = item.OrderId })'>
+                    <i class="material-icons right">delete</i>
+                </a>
+                <a href='@Url.Action("Edit","Order", new { id = item.OrderId })'>
+                    <i class="material-icons right">settings</i>
+                </a>
+            </span>
+        </div>
+    </div>
+}
+

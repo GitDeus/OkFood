@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OkFood.Data.Model.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace OkFood.Domain.Interfaces
         IExternalLoginRepository ExternalLoginRepository { get; }
         IRoleRepository RoleRepository { get; }
         IUserRepository UserRepository { get; }
+        IOrderRepository OrderRepository { get; }
+        IDeliveryAddressRepository DeliveryAddressRepository { get; }
         #endregion
 
         #region Methods

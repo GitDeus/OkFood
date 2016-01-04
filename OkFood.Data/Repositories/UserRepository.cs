@@ -12,17 +12,13 @@ using OkFood.Data.Context;
 
 namespace OkFood.Data.Repositories
 {
-    internal class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
-        internal UserRepository(DataContext context)
+        public UserRepository(DataContext context)
             : base(context)
         {
         }
 
-        public User FindByCategory(Category category)
-        {
-            return Set.FirstOrDefault(s=> s.Categories.Select(x=>x.Id).Contains(category.Id));
-        }
         public User FindByEmail(string email)
         {
             /////  

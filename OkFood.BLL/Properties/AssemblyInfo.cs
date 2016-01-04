@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("OkFood.BLL")]
+[assembly: AssemblyTitle("OkFood.Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OkFood.BLL")]
+[assembly: AssemblyProduct("OkFood.Service")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("2bb0ff54-3044-40ae-8c1a-14523aa78fe7")]
+[assembly: Guid("6d90a3b3-3f99-40be-bd78-5cf83b3118a7")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

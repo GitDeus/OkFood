@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace OkFood.Data.Repositories
 {
-    internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private DataContext _context;
         private DbSet<TEntity> _set;
 
-        internal Repository(DataContext context)
+        public Repository(DataContext context)
         {
             _context = context;
         }

@@ -1,0 +1,17 @@
+﻿@model OkFood.Domain.Model.Entities.Order
+
+@{
+    ViewBag.Title = "Details";
+    string name = Model.Title;
+}
+
+<h4>Details</h4>
+
+<div>
+    <h4>Order</h4>
+    <h5>Название категории: @name</h5>
+    @Html.ActionLink("Создать категорию", "Create", "Categories", new { Id = ViewBag.IdOrder }, htmlAttributes: new { @class = "waves-effect waves-light btn" })
+    @Html.ActionLink("Back to List", "Index", "Order", htmlAttributes: new { @class = "waves-effect waves-light btn" })
+</div>
+
+

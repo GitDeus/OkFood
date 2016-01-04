@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace OkFood.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     public class SubcategoriesController : Controller
     {
 

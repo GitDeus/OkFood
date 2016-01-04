@@ -1,50 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using OkFood.Domain.Model.Entities;
+using System;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using OkFood.Data.NStore;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections;
+using System.Net;
 
 namespace OkFood.Controllers
 {
     [Authorize]
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
-        private readonly IOrderedEnumerable<Order> orderService;
+
+        private readonly IOrderStore<Order, Guid> orderService;
+        private readonly IDeliveryAddressStore<DeliveryAddress, Guid> deliveryService;
+        //private readonly IUserStore<IdentityUser, Guid> userService;
+        public OrderController(IOrderStore<Order, Guid> orderService, IDeliveryAddressStore<DeliveryAddress, Guid> deliveryService/*, IUserStore<IdentityUser, Guid> userService*/)
+        {
+            this.deliveryService = deliveryService;
+            this.orderService = orderService;
+        }
+
         // GET: Order
         public ActionResult Index()
         {
-            return View();
+            var res = orderService.AllOrderByUser(UserId);
+            return View(res);
         }
 
         // GET: Order/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(Guid Id)
         {
-            return View();
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = await orderService.FindByIdAsync(Id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.IdOrder = Id;
+            return View(order);
         }
+
 
         // GET: Order/Create
         public ActionResult Create()
         {
+            IEnumerable res = deliveryService.AllDeliveryAddressByUserId(UserId);
+            ViewBag.DeliveryList = new SelectList(res, "DeliveryAdressId", "Comment");
             return View();
         }
 
         // POST: Order/Create
+        //[HttpPost]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(Order order)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                await orderService.CreateAsync(order, UserId);
+                return RedirectToAction("Index", "Order");
             }
-            catch
-            {
-                return View();
-            }
+            //IEnumerable res = deliveryService.AllDeliveryAddressByUserId(UserId);
+            //ViewBag.DeliveryList = new SelectList(res, "DeliveryAdressId", "Comment", order.DeliveryAddressId);
+            return View(order);
         }
 
-        // GET: Order/Edit/5
+            // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {
             return View();

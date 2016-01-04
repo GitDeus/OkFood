@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace OkFood.Data.Repositories
 {
-    internal class RoleRepository : Repository<Role>, IRoleRepository
+    public class RoleRepository : Repository<Role>, IRoleRepository
     {
-        internal RoleRepository(DataContext context)
+        public RoleRepository(DataContext context)
             : base(context)
         {
         }

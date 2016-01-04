@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace OkFood.Domain.Interfaces
 {
-    public interface IDeliveryAddressRepository
+    public interface IDeliveryAddressRepository: IRepository<DeliveryAddress>
     {
-        List<DeliveryAddress> DeliveryAddress(Guid UserId);
+        List<DeliveryAddress> AllDeliveryAddressByUserId(Guid UserId);
         DeliveryAddress Get(Guid DeliveryAddressId);
     }
 }

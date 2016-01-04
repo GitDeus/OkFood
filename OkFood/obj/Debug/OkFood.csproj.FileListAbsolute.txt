@@ -345,3 +345,16 @@ C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\ru\Microsoft.Owin.Security.Microsof
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.csprojResolveAssemblyReference.cache
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.dll
 C:\Users\Deus\Source\Repos\OkFood\OkFood\obj\Debug\OkFood.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.BLL.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\OkFood.BLL.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\System.Web.Providers.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\System.Web.Providers.xml
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.Core.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Quartz.dll
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.xml
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.Core.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Common.Logging.Core.xml
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Quartz.pdb
+C:\Users\Deus\Source\Repos\OkFood\OkFood\bin\Quartz.xml

@@ -1,4 +1,5 @@
 ﻿using OkFood.Data.Context;
+using OkFood.Data.Model.Interfaces;
 using OkFood.Domain.Interfaces;
 using OkFood.Domain.Model.Entities;
 using System;
@@ -19,6 +20,8 @@ namespace OkFood.Data.Repositories
         private ICategoryRepository _categoryRepository;
         private ISubcategoryRepository _subcategoryRepository;
         private IBankCardRepository _bankcardRepository;
+        private IOrderRepository _orderRepository;
+        private IDeliveryAddressRepository _deliveryRepository;
         #endregion
 
         #region Constructors
@@ -29,6 +32,15 @@ namespace OkFood.Data.Repositories
         #endregion
 
         #region IUnitOfWork Members
+        public IDeliveryAddressRepository DeliveryAddressRepository
+        {
+            get { return _deliveryRepository ?? (_deliveryRepository = new DeliveryAddressRepository(_context)); }
+        }
+        public IOrderRepository OrderRepository
+        {
+            get { return _orderRepository ?? (_orderRepository = new OrderRepository(_context)); }
+        }
+
         public IExternalLoginRepository ExternalLoginRepository
         {
             get { return _externalLoginRepository ?? (_externalLoginRepository = new ExternalLoginRepository(_context)); }
@@ -77,6 +89,11 @@ namespace OkFood.Data.Repositories
             _externalLoginRepository = null;
             _roleRepository = null;
             _userRepository = null;
+            _bankcardRepository = null;
+            _categoryRepository = null;
+            _subcategoryRepository = null;
+            _orderRepository = null;
+            _deliveryRepository = null;
             _context.Dispose();
         }
         #endregion

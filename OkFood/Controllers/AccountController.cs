@@ -19,41 +19,6 @@ namespace OkFood.Controllers
             _userManager = userManager;
         }
 
-
-
-
-
-        ////
-        //// POST: /Account/Add bankCard
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult BankCardManager(BankCardManagerViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = _userManager.FindAsync(model.BankCardNumber);
-        //        if (user != null)
-        //        {
-        //            SignInAsync(user, model.RememberMe);
-        //            return RedirectToLocal(returnUrl);
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Invalid username or password.");
-        //        }
-        //    }
-
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
-
-
-
-
-
-
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -106,9 +71,11 @@ namespace OkFood.Controllers
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser() { UserName = model.UserName };
+                var role = new IdentityRole() { Name = "User"};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var resrole = await _userManager.AddToRoleAsync(user.Id, role.Name);
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Categories");
                 }

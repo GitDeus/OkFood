@@ -1,25 +1,30 @@
 ﻿
 using OkFood.Data.Configuration;
 using OkFood.Domain.Model.Entities;
+using System;
 using System.Data.Entity;
 
 namespace OkFood.Data.Context
 {
-    internal class DataContext : DbContext
+    public interface IDataContext : IDisposable
     {
-        internal DataContext(string nameOrConnectionString)
+
+    }
+    public class DataContext : DbContext, IDataContext
+    {
+        public DataContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             
         }
-        internal IDbSet<Subcategory> DbSubcategories { get; set; }
-        internal IDbSet<Category> DbCategories { get; set; }
-        internal IDbSet<User> Users { get; set; }
-        internal IDbSet<Order> Orders { get; set; }
-        internal IDbSet<BankCard> BankCards { get; set; }
-        internal IDbSet<DeliveryAddress> DbDeliveryAddress { get; set; }
-        internal IDbSet<Role> Roles { get; set; }
-        internal IDbSet<ExternalLogin> Logins { get; set; }
+        public IDbSet<Subcategory> DbSubcategories { get; set; }
+        public IDbSet<Category> DbCategories { get; set; }
+        public IDbSet<User> Users { get; set; }
+        public IDbSet<Order> Orders { get; set; }
+        public IDbSet<BankCard> BankCards { get; set; }
+        public IDbSet<DeliveryAddress> DbDeliveryAddress { get; set; }
+        public IDbSet<Role> Roles { get; set; }
+        public IDbSet<ExternalLogin> Logins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

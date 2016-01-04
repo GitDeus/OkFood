@@ -15,43 +15,20 @@ using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
 using OkFood.Domain.Model.Entities;
+using OkFood.Data.NStore;
 
 namespace OkFood.Controllers
 {
-    [Authorize]
-    public class CategoriesController : Controller
+    [Authorize(Roles = "Manager")]
+    public class CategoriesController : BaseController
     {
-        protected bool UserIsAuthenticated
-        {
-            get
-            {
-                return System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            }
-        }
-
-        protected Guid UserId
-        {
-            get
-            {
-                var result = default(Guid);
-                Guid.TryParse(UserIsAuthenticated ? System.Web.HttpContext.Current.User.Identity.GetUserId() : null, out result);
-                return result;
-            }
-        }
         private readonly UnitOfWork _Manager;
+        private readonly IOrderStore<Order, Guid> orderStore;
+        public CategoriesController(UnitOfWork manager, IOrderStore<Order, Guid> orderStore) {
 
-        public CategoriesController(UnitOfWork manager) { _Manager = manager; }
-        //private IEnumerable<Category> GetData(string selectedCategory)
-        //{
-        //    IEnumerable<Category> data = _Manager.CategoryRepository.GetAll();
-        //    if (selectedCategory != "All")
-        //    {
-        //        Category selected = (Category)Enum.Parse(typeof(Category), selectedCategory);
-        //        data = _Manager.CategoryRepository.GetAll().Where(p => p == selected);
-        //    }
-        //    return data;
-        //}
-
+            this.orderStore = orderStore;
+            _Manager = manager;
+        }
         [HttpGet]
         public JsonResult Piechart(Guid Id) {
 
@@ -85,9 +62,11 @@ namespace OkFood.Controllers
         }
 
         // GET: Categories/Create
-        public ActionResult Create()
+        public ActionResult Create(Guid Id)
         {
-            return View();
+            ViewBag.OrderId = Id;
+            //ViewBag.OrderId = new SelectList(orderStore.AllOrderByUser(UserId), "OrderId", "Title");
+            return View(new Category() { Id = Guid.NewGuid(), OrderId = Id, Title = string.Empty, NumberofMoney = decimal.Zero });
         }
         //private Guid getGuid(string value)
         //{
@@ -108,26 +87,25 @@ namespace OkFood.Controllers
             if (category == null)
                 throw new ArgumentNullException("category");
 
-            var user = _Manager.UserRepository.FindById(UserId);
-            if (user == null) 
+            var order = _Manager.OrderRepository.FindById(category.OrderId);
+            if (order == null) 
                 throw new ArgumentException("IdentityUser не соответствуют сущности пользователя.", "user");
             //else if (user.TotalMoney < category.NumberofMoney)
             //    throw new ArgumentException("Недостаточно средств", "user");
 
             var c = new Category
             {
-                Id = category.Id,
+                Id = Guid.NewGuid(),
                 NumberofMoney = category.NumberofMoney,
                 Title = category.Title,
-                UserId = category.UserId,
+                OrderId = category.OrderId,
 
-                User = user
+                Order = order
             };
-
             //user.TotalMoney -= c.NumberofMoney;
-            user.Categories.Add(c);
+            order.Categories.Add(c);
 
-            _Manager.UserRepository.Update(user);
+            _Manager.OrderRepository.Update(order);
             return _Manager.SaveChanges();
         }
         ////GET
@@ -154,27 +132,27 @@ namespace OkFood.Controllers
 
         //    return View(userres);
         //}
-        // POST: TotalMoneyEdit
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult TotalMoneyEdit([Bind(Include = "TotalMoney")] AddTotalMoneyViewModel totalMoneyModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = _Manager.UserRepository.FindById(UserId);
-                    //user.TotalMoney = totalMoneyModel.TotalMoney;
-                _Manager.UserRepository.Update(user);
-                _Manager.SaveChanges();
+        //// POST: TotalMoneyEdit
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult TotalMoneyEdit([Bind(Include = "TotalMoney")] AddTotalMoneyViewModel totalMoneyModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = _Manager.UserRepository.FindById(UserId);
+        //            //user.TotalMoney = totalMoneyModel.TotalMoney;
+        //        _Manager.UserRepository.Update(user);
+        //        _Manager.SaveChanges();
 
-                return RedirectToAction("Index", "Categories");
-            }
+        //        return RedirectToAction("Index", "Categories");
+        //    }
             
-            return View(totalMoneyModel);
-        }
+        //    return View(totalMoneyModel);
+        //}
         // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,NumberofMoney")] Category category)
+        public ActionResult Create([Bind(Include = "Id,Title,NumberofMoney,OrderId")] Category category)
         {
 
             if (ModelState.IsValid)
@@ -186,9 +164,17 @@ namespace OkFood.Controllers
                 //}
                 //else
                 //{
+                if (orderStore.AllOrderByUser(UserId).Count > 0)
+                {
                     AddCategory(category);
                     return RedirectToAction("Index", "Categories");
                 //}
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Orders");
+                }
+                ViewBag.OrderId = new SelectList(_Manager.CategoryRepository.GetAll(), "Id", "Title", category.OrderId);
             }
 
             return View(category);
@@ -221,7 +207,7 @@ namespace OkFood.Controllers
             if (ModelState.IsValid)
             {
 
-                category.UserId = UserId;
+                category.OrderId = category.OrderId;/**ddddddddd*/
                 _Manager.CategoryRepository.Update(category);
                 _Manager.SaveChanges();
                 return RedirectToAction("Index", "Categories");

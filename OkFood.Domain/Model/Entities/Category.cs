@@ -5,7 +5,7 @@ namespace OkFood.Domain.Model.Entities
 {
     public class Category
     {
-        private User _user;
+        private Order _order;
         private ICollection<Subcategory> _subcategories;
         //[Required]
         public Guid Id { get; set; }
@@ -26,16 +26,16 @@ namespace OkFood.Domain.Model.Entities
             set { _subcategories = value; }
         }
 
-        public Guid UserId { get; set; }
+        public Guid OrderId { get; set; }
 
         
-        public User User {
-            get { return _user; }
+        public Order Order {
+            get { return _order; }
             set
             {
                 if (value == null)
                     throw new ArgumentNullException("value");
-                _user = value;
+                _order = value;
             }
         }
     }

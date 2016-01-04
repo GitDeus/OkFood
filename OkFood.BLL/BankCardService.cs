@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OkFood.Domain.Model.Entities;
 using System.Threading;
 
-namespace OkFood.BLL
+namespace OkFood.Service
 {
     public partial class BankCardService : IBankCardRepository
     {

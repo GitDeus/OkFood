@@ -25,9 +25,9 @@ namespace OkFood.Data.Configuration
                 .HasColumnType("nvarchar")
                 .HasMaxLength(128)
                 .IsOptional();
-            HasMany(x => x.DeliveryAddress)
-                .WithRequired(x => x.Order)
-                .HasForeignKey(x => x.OrderId);
+            //HasMany(x => x.DeliveryAddress)
+            //    .WithRequired(x => x.Order)
+            //    .HasForeignKey(x => x.OrderId);
             //HasMany(x => x.Roles)
             //    .WithMany(x => x.Users)
             //    .Map(x =>

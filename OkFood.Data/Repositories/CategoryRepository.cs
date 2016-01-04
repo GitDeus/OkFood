@@ -14,9 +14,9 @@ using OkFood.Data.Context;
 namespace OkFood.Data.Repositories
 {
     //Category Repositiry
-    internal class CategoryRepository: Repository<Category>, ICategoryRepository
+    public class CategoryRepository: Repository<Category>, ICategoryRepository
     {
-        internal CategoryRepository(DataContext context)
+        public CategoryRepository(DataContext context)
             : base(context)
         {
         }
@@ -29,8 +29,8 @@ namespace OkFood.Data.Repositories
         {
 
             return Set
-                .Include(x => x.User)
-                .Where(x => x.User.UserId == UserId)
+                .Include(x => x.Order.User)
+                .Where(x => x.Order.User.UserId == UserId)
                 .ToList();
         }
         public IEnumerable<Subcategory> GetAllSubcategory(Category cat)
@@ -54,42 +54,6 @@ namespace OkFood.Data.Repositories
            return Set.Where(x=>x==cat).ToList();
         }
 
-
-
-        public Task<List<Category>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Category>> GetAllAsync(CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Category> PageAll(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Category>> PageAllAsync(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Category>> PageAllAsync(CancellationToken cancellationToken, int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Category> FindByIdAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Category> FindByIdAsync(CancellationToken cancellationToken, object id)
-        {
-            throw new NotImplementedException();
-        }
 
         public Category Get(Guid id)
         {
